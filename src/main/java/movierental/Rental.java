@@ -5,19 +5,28 @@ package movierental;
  */
 public class Rental {
 
-    private Movie _movie;
-    private int _daysRented;
+    private Movie movie;
+    private int daysRented;
 
     public Rental(Movie movie, int daysRented) {
-        _movie = movie;
-        _daysRented = daysRented;
+        this.movie = movie;
+        this.daysRented = daysRented;
     }
 
     public int getDaysRented() {
-        return _daysRented;
+        return daysRented;
     }
 
     public Movie getMovie() {
-        return _movie;
+        return movie;
+    }
+
+    public Price getPrice() {
+        return movie.getPrice(daysRented);
+    }
+
+    @Override
+    public String toString() {
+        return movie.getTitle() + "\t" + String.valueOf(getPrice());
     }
 }
